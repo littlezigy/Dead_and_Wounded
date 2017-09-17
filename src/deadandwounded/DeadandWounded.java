@@ -16,8 +16,8 @@ public class DeadandWounded {
      */
     public static void main(String[] args) {
        /*Create variables*/
-        int numwounded = 0;
-        int numdead = 0;
+        int wounded = 0;
+        int dead = 0;
         int compNumber[] = new int[4];
         int randomNumber;
         
@@ -44,15 +44,33 @@ public class DeadandWounded {
         //Get user input
         System.out.print("Guess my four digit number!: ");
         Scanner userinput = new Scanner(System.in);
-        int guess = userinput.nextInt();
+        String guess = userinput.next() ;
         
         System.out.println(guess);
         
         //Time to start comparing the user's guess
         
-        for (int k = 0; k < compNumber.length; k ++) { //k is counter for input
+        for (int k = 0; k < compNumber.length; k++) { //k is counter for user input
+            Character fig = guess.charAt(k);
+            String figure = fig.toString();
             
+            System.out.println(fig);
+            int digit = Integer.parseInt(figure);
+            if ( digit == compNumber[k]) { //Does k in user input match k number in pcnum array?
+                System.out.println("+1 dead! : " + digit);
+                dead+=1;
+            }
+            else {
+                for (int m = 0; m < compNumber.length; m++) {
+                    if (digit == compNumber[m]) {
+                        System.out.println("Wounded at number " + m + " position. " + compNumber[m]);
+                        wounded+=1;
+                        break;
+                    }
+                }
+            }
         }
+        System.out.println(wounded + " wounded, " + dead + " dead.");
     }
     
 }
