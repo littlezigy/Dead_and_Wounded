@@ -1,4 +1,5 @@
 func generateRandom() -> [Int] {
+    //a working algortihm in swift.
     var firstDig : Int = Int(arc4random_uniform(10))
     var secondDig : Int = Int(arc4random_uniform(10))
     var thirdDig : Int = Int(arc4random_uniform(10))
